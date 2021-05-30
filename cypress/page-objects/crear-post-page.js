@@ -25,8 +25,6 @@ export class CrearPostPage{
     this.step = this.step+2;
   }
 
-
-
   clickBotonCrearPost(){
     this.todoPage.clickBoton(".gh-nav-new-post",1000)
     this.callScreenshot();

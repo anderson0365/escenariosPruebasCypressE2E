@@ -1,74 +1,23 @@
-# Requerimientos de ejecucion
+# Ejecucion de pruebas e2e
 
-Issues:  [aquí](https://github.com/andres-benavides-andes/escenariosPruebasE2E/issues)
-<br>Pros y contras: [aquí](https://github.com/andres-benavides-andes/escenariosPruebasE2E/wiki/An%C3%A1lisis-de-ventajas-y-desventajas-de-las-herramientas-BackstopJS-y-ResembleJS)
+## Requerimientos
 
-Notas: 
-- Ejecutar los pasos en el orden mencionado
-- No hubo necesidad de crear dos archivos para pruebas entre versiones porque con las modificaciones realizadas, quedaron funcionando para las dos versiones.
-- Antes de ejecutar la toma de fotos de las versiones, ingrese a Ghost y cierre la recomendación de actualización que se muestra en la parte superior.
+Las pruebas se desarrollaron usando los siguientes programas
 
-## 1. Toma de fotos Ghost 3.3.0
+- node v12.17.0
+- npm v6.14.4
 
-Se debe tener corriendo localmente a ghost con la versión 3.3.0 en la direccion http://localhost:2368/
+Se debe tener corriendo localmente la aplicación ghost v3.42.5 en el puerto 2368. Tambien, se debío haber creado un usuario administrador, y sus credenciales se deben ingresar en el archivo "cypress/config.js".
 
-Se debe modificar el archivo ./cypress/config.js con el email y la password del usuario administrador del ghost en ejecucion
+## Ejecucion
 
-Se debe modificar el archivo ./cypress.json con el atributo "screenshotsFolder": "tvr/3.3.0"
-
-El entorno local de cypress debe configurarse acorde a la rubrica mencionada en la clase
-
-Se debe abrir el proyecto con cypress
-
-Los esenarios de prueba a correr se encuentran en la carpeta ./cypress/integration/
-
-Ejecutar el comando ghost stop
-
-Ir a la raíz del repo y en la carpeta tvr/3.3.0 estarán las fotos de los pasos de las pruebas por escenario
-
-## 2. Toma de fotos Ghost 3.42.5
-
-Se debe tener corriendo localmente a ghost con la versión 3.42.5 en la direccion http://localhost:2368/
-
-Se debe modificar el archivo ./cypress/config.js con el email y la password del usuario administrador del ghost en ejecucion
-
-Se debe modificar el archivo ./cypress.json con el atributo "screenshotsFolder": "tvr/3.42.5"
-
-El entorno local de cypress debe configurarse acorde a la rubrica mencionada en la clase
-
-Se debe abrir el proyecto con cypress
-
-Los esenarios de prueba a correr se encuentran en la carpeta ./cypress/integration/
-
-Ejecutar el comando ghost stop
-
-Ir a la raíz del repo y en la carpeta tvr/3.42.5 estarán las fotos de los pasos de las pruebas por escenario
-
-## 3. Comaparación con resemble
-
-Estando en la raíz del repo, ingresar a la carpeta resemble
-
-El entorno local de resemble debe configurarse acorde a la rubrica mencionada en la clase
-
-Ejecutar el comando npm i para instalar dependencias
-
-Ejecutar el comando node index.js
-
-Ir a la raíz del repo y en la carpeta tvr/result estarán las fotos de comparación y el reporte html generado automáticamente
-
-## 4. Comaparación con backstop
-
-Estando en la raíz del repo, ingresar a la carpeta backstop
-
-El entorno local de backstop debe configurarse acorde a la rubrica mencionada en la clase
-
-Ejecutar el comando backstop reference
-
-Ejecutar el comando backstop test, este abrira el reporte html generado por la herramienta
+Los esenarios de prueba se encuentran en ruta "cypress/integration". Para ejecutarlo, puede abrir la interfaz gráfica de cypress mediante el siguiente comando:
+```
+./node_modules/.bin/cypress open
+```
+Luego seleccione los esenarios de prueba que desea ejecutar.
 
 ## Comentarios generales relacionados con la ejecución de pruebas de regresión
-
-Como se podría fijar en la ejecución del script basado en resemble, la prueba de regresión se hizo para todos los escenarios y funciones descritas en este te documento. Solo la prueba de backstop se hizo para casos puntuales. También se validó que los escenarios corren en ambas versiones de ghost que están bajo pruebas (3.3.0 y 3.42.5), por lo que no fue necesario replicar escenarios para una versión en específico. Todos los escenarios fueron modificados para tomar screenshots de forma automática, acorde a lo requerido.
 
 
 # Equipo
