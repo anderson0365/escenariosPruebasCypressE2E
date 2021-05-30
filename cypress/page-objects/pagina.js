@@ -13,7 +13,6 @@ export class Pagina {
   navigate(){
     this.todoPage.navigate();
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
   }
 
   login(username,password){
@@ -25,7 +24,6 @@ export class Pagina {
   clickSeccionPages(){
     this.todoPage.clickBoton("a[href='#/pages/']",1000)
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
   }
   
   clickBotonCrearPage(){
@@ -37,23 +35,19 @@ export class Pagina {
       }
    });
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
   }
 
   enterTituloPage(title){
     this.todoPage.typeInElement(".gh-editor-title",title);
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
     this.todoPage.clickBoton("body",50)
   }
 
   publicarPage(){
     this.todoPage.clickBoton(".gh-publishmenu-trigger",1000)
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
     this.todoPage.clickBoton(".gh-publishmenu-button",3000)
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
   }
   
   programarPublicacionPage(){
@@ -65,19 +59,15 @@ export class Pagina {
       }
     });
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
     this.todoPage.clickBoton(".gh-publishmenu-button",3000)
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
   }
   
   verPreviewPage(){
     this.todoPage.clickBoton("button[title='Settings']",1000)
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
     this.todoPage.clickBoton(".post-view-link",3000)
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
   }
   
   validarPageCreado(titulo){
@@ -86,7 +76,6 @@ export class Pagina {
       expect($title.first()).to.contain(titulo);
     });
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
   }
   
   clickPageCreada(){
@@ -97,26 +86,21 @@ export class Pagina {
       }
     });
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
   }
   
   eliminarPageCreada(){
     this.todoPage.clickBoton("button[title='Settings']",2000)
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
     this.todoPage.clickBoton(".settings-menu-delete-button",2000)
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
     this.todoPage.clickBoton(".gh-btn-red",1000)
     cy.wait(5000);
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
   }
   
   logout(){
     this.todoPage.clickBoton(".gh-user-avatar",2000)
     this.step++;
-    this.todoPage.takeScreenshot(this.scenario, this.step);
     this.todoPage.clickBoton("a[href='#/signout/']",50) 
   }
 }
